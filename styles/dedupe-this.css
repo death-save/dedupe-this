@@ -1,0 +1,82 @@
+#dedupe-this-form .results h3 {
+    flex: 0 1 0px;
+}
+
+#dedupe-this-form .criteria .help-text {
+    font-size: 0.7rem;
+    color: grey;
+}
+
+#dedupe-this-form .criteria .advanced input[type=radio] {
+    flex: 0 1 0px;
+}
+
+#dedupe-this-form .results dl {
+    border: 2px inset;
+}
+
+#dedupe-this-form .results dd {
+    height: 22px;
+    margin: 2px 0px 0px 20px;
+}
+
+#dedupe-this-form .results .separator.arrow-right {
+    width: 0;
+    height: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    border-left: 20px solid black;
+    flex: 0 1 20px;
+    margin: auto 5px;
+}
+
+
+#dedupe-this-about img {
+    border: none;
+}
+
+#dedupe-this-about .logo {
+    width: 600px;
+}
+
+#dedupe-this-about .version {
+    flex-grow: 0;
+}
+
+#dedupe-this-about div.patrons {
+    width: 100%;
+}
+
+#dedupe-this-about .patrons ol {
+    height: 175px;
+    border: 1px inset white;
+    list-style: none;
+    overflow: hidden scroll;
+    text-align: center;
+    padding: 2px;
+}
+
+#dedupe-this-about .patrons li:nth-child(odd) {
+    background: rgba(0,0,0,0.2);
+}
+
+#dedupe-this-about .patrons li {
+    font-size: x-large;
+}
+
+#dedupe-this-about footer div {
+    justify-content: center;
+    text-align: center;
+}
+
+#dedupe-this-about .death-save {
+    flex: 0 0 120px;
+}
+
+#dedupe-this-about .heart {
+    color: tomato;
+}
+
+#dedupe-this-about .patreon img {
+    flex: 0 0 100px;
+}

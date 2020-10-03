@@ -1,0 +1,36 @@
+{
+    "SETTINGS.FormButtonN": "Dedupe This!",
+    "SETTINGS.FormButtonH": "Launches the Dedupe This! form",
+    "SETTINGS.FormButtonLabel": "Dedupe This!",
+    "SETTINGS.SuppressWarningN": "Suppress Dedupe Warning",
+    "SETTINGS.SuppressWarningH": "Never show the warning that deduping may impact your entities and/or folders",
+
+    "DEDUPE.Successful": "Dedupe This! | Dedupe successful!",
+    "DEDUPE.Failed": "Dedupe This! | Dedupe failed...",
+
+    "FORM.EntityType": "Entity Type",
+    "FORM.FilterCriteria": "Filter Criteria",
+    "FORM.Criteria.Advanced.Help": "Enter a dot-notated property path for the entity.\n(Eg. for an Actor you might enter data.data.attributes.hp.value)",
+    "FORM.Criteria.Advanced.Placeholder": "eg. data.data.attributes.hp.value",
+    "FORM.Buttons.Dedupe": "Dedupe!",
+    "FORM.Simple": "Simple Criteria",
+    "FORM.Advanced": "Advanced Criteria",
+    "FORM.NoSelection": "--Please Make a Selection--",
+    "FORM.RootFolder": "--Root Folder--",
+    "FORM.Current": "Current Folder Contents",
+    "FORM.Deduped": "Deduped Folder Contents",
+
+    "DEDUPE_WARNING.Title": "Dedupe Warning",
+    "DEDUPE_WARNING.Body": "By clicking 'Yes' you accept that the deduping process will make changes to your entities and/or folders and any issues arising from this is your responsibility.",
+    "DEDUPE_WARNING.SuppressLabel": "Don't show this warning again",
+
+    "SIDEBAR.Utilities": "Utilities",
+
+    "WORDS.About": "About",
+    "WORDS.Folder": "Folder",
+    "WORDS.Criteria": "Criteria",
+    "WORDS.Preview": "Preview",
+    "WORDS.Name": "Name",
+    "WORDS.Img": "Img",
+    "WORDS.Duplicates": "Duplicates"
+}
