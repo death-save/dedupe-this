@@ -163,7 +163,8 @@ export default class DedupeThisForm extends FormApplication {
         const folderId = event.currentTarget.value;
         const folder = this.dedupeWorker.getFolder(folderId);
 
-        folder.type = folder.type ?? this.entityType;
+        if (!folder.type) folder.type = this.entityType;
+        
         this.folder = folder;
         this.entities = null;
         this.duplicates = null;
