@@ -1,0 +1,26 @@
+{
+    "name": "dedupe-this",
+    "title": "Dedupe This!",
+    "description": "Deduplicates entities for a given folder and set of criteria",
+    "version": "0.1.0",
+    "author": "Evan Clarke [errational#2007]",
+    "minimumCoreVersion": "0.6.6",
+    "compatibleCoreVersion": "0.6.6",
+    "url": "https://patreon.com/deathsave",
+    "manifest": "https://deathsave.s3.amazonaws.com/7zbnqmhu5wG2u6/module.json",
+    "download": "https://deathsave.s3.amazonaws.com/7zbnqmhu5wG2u6/dedupe-this.zip",
+    "esmodules": [
+      "./init.js"
+    ],
+    "languages": [
+      {
+        "lang": "en",
+        "name": "English",
+        "path": "lang/en.json"
+      }
+    ],
+    "styles" : [
+        "./styles/dedupe-this.css"
+    ]
+  }
+  

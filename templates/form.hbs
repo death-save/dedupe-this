@@ -1,0 +1,83 @@
+<form onsubmit="event.preventDefault()" autocomplete="off">
+    <div class="form-group">
+        <label>{{localize "FORM.EntityType"}}</label>
+        {{#select entityTypeEnum}}
+        <select name="entity-type">
+            <option value="">{{localize "FORM.NoSelection"}}</option>
+            {{#each entityTypes}}
+            <option value="{{@index}}">{{this}}</option>
+            {{/each}}
+        </select>
+        {{/select}}
+    </div>
+    <div class="form-group">
+        <label>{{localize "WORDS.Folder"}}</label>
+        {{#select folder.id}}
+        <select name="folder">
+            <option value="">{{localize "FORM.NoSelection"}}</option>
+            <option value="root">{{localize "FORM.RootFolder"}}</option>
+            {{#each folders}}
+            <option value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+        {{/select}}
+    </div>
+    <div class="criteria">
+        <h2>{{localize "WORDS.Criteria"}}</h2>
+        <div class="simple">
+            <h3>{{localize "FORM.Simple"}}</h3>
+            <input type="radio" name="criteria" value="criteria.name" {{checked isNameCriteria}} {{#if folder}}{{else}}disabled{{/if}}>
+            <label for="criteria-name">{{localize "WORDS.Name"}}</label>
+            <input type="radio" name="criteria" value="criteria.img" {{checked isImgCriteria.}} {{#if folder}}{{else}}disabled{{/if}}>
+            <label for="criteria-img">{{localize "WORDS.Img"}}</label>
+        </div>
+        <div class="advanced">
+            <h3>{{localize "FORM.Advanced"}} <i class="fas fa-info-circle help-text" title="{{localize "FORM.Criteria.Advanced.Help"}}"></i></h3>
+            <div class="flexrow">
+                <input type="radio" name="criteria" value="criteria.advanced" {{checked isAdvancedCriteria}} {{#if folder}}{{else}}disabled{{/if}}>
+                <input type="text" name="criteria-advanced-text" value="{{criteria.value}}" placeholder="{{localize "FORM.Criteria.Advanced.Placeholder"}}" {{#if folder}}{{else}}disabled{{/if}}>
+            </div>
+        </div>
+        <br/>
+    </div>
+    <button type="button" name="preview" {{#if folder}}{{else}}disabled{{/if}}><i class="fas fa-search"></i>{{localize "WORDS.Preview"}}</button>
+    <h2>{{localize "WORDS.Preview"}}</h2>
+    <div class="results flexrow">
+        <div class="current flexcol">
+            <h3>{{localize "FORM.Current"}}</h3>
+            <dl>
+                <dt>{{this.folder.name}}</dt>
+                {{#each entities}}
+                <dd>{{{this.link}}}</dd>
+                {{/each}}
+                {{#if folder}}{{#if entities}}{{else}}<dd>No entities found</dd>{{/if}}{{/if}}
+            </dl>
+        </div>
+        <div class="separator arrow-right">
+        </div>
+        <div class="deduped flexcol">
+            <h3>{{localize "FORM.Deduped"}}</h3>
+            
+            <dl>
+                <dt>{{this.folder.name}}</dt>
+                {{#if duplicates}}
+                {{#each uniques}}
+                <dd>{{{this.link}}}</dd>
+                {{/each}}
+                <dd>
+                    <dt>{{localize "WORDS.Duplicates"}}</dt>
+                    {{#each duplicates}}
+                    <dd>{{{this.link}}}</dd>
+                    {{/each}}
+                    {{else}}
+                    {{#if folder}}<dd>No duplicates found</dd>{{/if}}
+                    {{/if}}
+                </dd>
+            </dl>
+            
+        </div>
+    </div>
+    <footer class="flexrow">
+        <button type="button" name="dedupe" {{#if duplicates}}{{else}}disabled{{/if}}><i class="fas fa-user-slash"></i> {{localize "FORM.Buttons.Dedupe"}}</button>
+    </footer>
+</form>
