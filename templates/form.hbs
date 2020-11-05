@@ -46,11 +46,16 @@
         <div class="current flexcol">
             <h3>{{localize "FORM.Current"}}</h3>
             <dl>
-                <dt>{{this.folder.name}}</dt>
+                {{#if folder}}
+                <dt><i class="fas fa-folder-open"></i> {{this.folder.name}}</dt>
                 {{#each entities}}
-                <dd>{{{this.link}}}</dd>
+                    <dd>{{{this.enrichedLink}}}</dd>
                 {{/each}}
-                {{#if folder}}{{#if entities}}{{else}}<dd>No entities found</dd>{{/if}}{{/if}}
+                {{#if entities}}
+                {{else}}<dd>No entities found</dd>
+                {{/if}}
+                {{else}}
+                {{/if}}
             </dl>
         </div>
         <div class="separator arrow-right">
@@ -59,25 +64,28 @@
             <h3>{{localize "FORM.Deduped"}}</h3>
             
             <dl>
-                <dt>{{this.folder.name}}</dt>
+                {{#if folder}}
+                <dt><i class="fas fa-folder-open"></i> {{this.folder.name}}</dt>
                 {{#if duplicates}}
                 {{#each uniques}}
-                <dd>{{{this.link}}}</dd>
+                    <dd>{{{this.enrichedLink}}}</dd>
                 {{/each}}
                 <dd>
-                    <dt>{{localize "WORDS.Duplicates"}}</dt>
+                    <dt><i class="fas fa-folder-open"></i> {{localize "WORDS.Duplicates"}}</dt>
                     {{#each duplicates}}
-                    <dd>{{{this.link}}}</dd>
+                        <dd>{{{this.enrichedLink}}}</dd>
                     {{/each}}
                     {{else}}
-                    {{#if folder}}<dd>No duplicates found</dd>{{/if}}
-                    {{/if}}
+                    <dd>{{#if criteria}}{{localize "FORM.NoDuplicates"}}{{else}}{{localize "FORM.SetCriteria"}}{{/if}}</dd>
                 </dd>
+                {{/if}}
+                {{else}}
+                {{/if}}
             </dl>
             
         </div>
     </div>
     <footer class="flexrow">
-        <button type="button" name="dedupe" {{#if duplicates}}{{else}}disabled{{/if}}><i class="fas fa-user-slash"></i> {{localize "FORM.Buttons.Dedupe"}}</button>
+        <button type="button" name="dedupe" {{#if duplicates}}{{else}}disabled{{/if}}><i class="fas fa-user"></i><i class="fas fa-user-slash"></i> {{localize "FORM.Buttons.Dedupe"}}</button>
     </footer>
 </form>

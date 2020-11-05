@@ -23,7 +23,7 @@ export default class DedupeThis {
     getFolder(nameOrId) {
         if (nameOrId === "root") {
             return {
-                name: "root",
+                name: "root folder",
                 id: "root"
             }
         }
