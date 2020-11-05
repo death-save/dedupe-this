@@ -7,8 +7,8 @@
     "minimumCoreVersion": "0.7.5",
     "compatibleCoreVersion": "0.7.5",
     "url": "https://patreon.com/deathsave",
-    "manifest": "https://deathsave.s3.amazonaws.com/7zbnqmhu5wG2u6/module.json",
-    "download": "https://deathsave.s3.amazonaws.com/7zbnqmhu5wG2u6/dedupe-this.zip",
+    "manifest": "https://raw.githubusercontent.com/death-save/dedupe-this-public/main/module.json",
+    "download": "https://github.com/death-save/dedupe-this-public/releases/download/v0.1.1-alpha/dedupe-this.zip",
     "esmodules": [
       "./init.js"
     ],
