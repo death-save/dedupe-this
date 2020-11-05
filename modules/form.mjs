@@ -79,7 +79,7 @@ export default class DedupeThisForm extends FormApplication {
         }
 
         const entities = this.entities = this.folder ? this.dedupeWorker.getEntities(folder) : [];
-        entities?.length ? entities.forEach(e => e.link = TextEditor._replaceContentLinks(e.name, entityType, e.id)) : null;
+        entities?.length ? entities.forEach(e => e.enrichedLink = TextEditor.enrichHTML(e.link)) : null;
         const uniques = this.uniques;
         const duplicates = this.duplicates;
 
@@ -135,7 +135,6 @@ export default class DedupeThisForm extends FormApplication {
         buttons.on("click", event => this._onClickButton(event));
         entityTypeSelect.on("change", event => this._onChangeEntityType(event));
         folderSelect.on("change", event => this._onChangeFolder(event));
-
     }
 
     /**
@@ -145,13 +144,14 @@ export default class DedupeThisForm extends FormApplication {
     _onChangeEntityType(event) {
         const entityTypeEnum = event.currentTarget.value;
         const entityType = CONST.FOLDER_ENTITY_TYPES[entityTypeEnum];
-
+        
         this.entityType = entityType;
         this.folder = null;
         this.criteria = null;
         this.entities = null;
         this.duplicates = null;
         this.uniques = null;
+
         return this.render();
     }
 
@@ -159,17 +159,18 @@ export default class DedupeThisForm extends FormApplication {
      * Handle change folder
      * @param event 
      */
-    _onChangeFolder(event) {
+    async _onChangeFolder(event) {
         const folderId = event.currentTarget.value;
         const folder = this.dedupeWorker.getFolder(folderId);
-
-        if (!folder.type) folder.type = this.entityType;
+        
+        if (folder && !folder.type) folder.type = this.entityType;
         
         this.folder = folder;
         this.entities = null;
         this.duplicates = null;
         this.uniques = null;
-        return this.render();
+
+        await this.render();
     }
 
     /**
@@ -198,28 +199,16 @@ export default class DedupeThisForm extends FormApplication {
     /* -------------------------------------------- */
 
     /**
-     * Scrapes and builds a formData object
-     */
-    _reduceFormData() {
-        const form = this.form;
-        const FD = this._getFormData(form);
-        const formData = buildFormData(FD);
-        const radioValue = $(this.form).find("input[type='radio']:checked").val();
-        formData.criteria.value = radioValue ? radioValue : null;
-
-        return formData;
-    }
-
-    /**
      * Builds a Criteria object from the app's form
      * @param formData 
      * @returns {Object} criteria
      */
     _buildCriteriaObject() {
-        const formData = this._reduceFormData();
+        const formData = new FormDataExtended(this.form, {editors: this.editors});
+        const data = formData.toObject();
         const criteria = {
-            type: formData.criteria.value.replace("criteria.",""),
-            value: formData.criteria.value === "criteria.advanced" ? formData["criteria-advanced-text"] : formData.criteria.value.replace("criteria.","")
+            type: data.criteria.replace("criteria.",""),
+            value: data.criteria === "criteria.advanced" ? data["criteria-advanced-text"] : data.criteria.replace("criteria.","")
         };
 
         /*
@@ -310,7 +299,7 @@ export default class DedupeThisForm extends FormApplication {
         const utilityDivHtml = `
         <h2>${game.i18n.localize("SIDEBAR.Utilities")}</h2>
         <div id="utility-modules">
-            <button data-action="dedupe-this"><i class="fas fa-user-slash"></i> Dedupe This!</button>
+            <button data-action="dedupe-this"><i class="fas fa-user"></i><i class="fas fa-user-slash"></i> Dedupe This!</button>
         </div>`;
 
         html.append(utilityDivHtml);

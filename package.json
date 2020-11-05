@@ -1,6 +1,6 @@
 {
   "name": "dedupe-this",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A deduping module for Foundry Virtual Tabletop",
   "main": "init.js",
   "scripts": {

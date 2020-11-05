@@ -19,6 +19,8 @@
     "FORM.RootFolder": "--Root Folder--",
     "FORM.Current": "Current Folder Contents",
     "FORM.Deduped": "Deduped Folder Contents",
+    "FORM.NoDuplicates": "No duplicates found based on criteria",
+    "FORM.SetCriteria": "Set Criteria and click Preview",
 
     "DEDUPE_WARNING.Title": "Dedupe Warning",
     "DEDUPE_WARNING.Body": "By clicking 'Yes' you accept that the deduping process will make changes to your entities and/or folders and any issues arising from this is your responsibility.",
