@@ -56,7 +56,7 @@ export default class DedupeThis {
                     break;
             }
             
-            folder.content = gameEntityAccessor ? game[gameEntityAccessor].entities.filter(e => e.folder === null) : [];
+            folder.content = gameEntityAccessor ? game[gameEntityAccessor].filter(e => e.folder === null) : [];
         }
         
         return folder.content;
@@ -111,7 +111,7 @@ export default class DedupeThis {
     getDuplicateFolder(entityType) {
         if (!entityType) return;
 
-        return game.folders.entities.find(f => f.name === this.duplicatesLocalized && f.type === entityType);
+        return game.folders.find(f => f.name === this.duplicatesLocalized && f.type === entityType);
     }
 
     /**
