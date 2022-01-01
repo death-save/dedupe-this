@@ -125,7 +125,8 @@ Get entities helper
 <a name="module_Dedupe This!..DedupeThis+dedupe"></a>
 
 #### dedupeThis.dedupe(folder, criteria)
-Perform a dedupe against the provided folder using the supplied criteria.Returns both the `unique` and `duplicate` entities
+Perform a dedupe against the provided folder using the supplied criteria.
+Returns both the `unique` and `duplicate` entities
 
 **Kind**: instance method of [<code>DedupeThis</code>](#module_Dedupe This!..DedupeThis)  
 **Todo**
@@ -186,7 +187,6 @@ Moves the given entities to the provided folder
             * [._onChangeEntityType(event)](#module_form..DedupeThisForm+_onChangeEntityType)
             * [._onChangeFolder(event)](#module_form..DedupeThisForm+_onChangeFolder)
             * [._onClickButton(event)](#module_form..DedupeThisForm+_onClickButton)
-            * [._reduceFormData()](#module_form..DedupeThisForm+_reduceFormData)
             * [._buildCriteriaObject(formData)](#module_form..DedupeThisForm+_buildCriteriaObject) ⇒ <code>Object</code>
             * [.preview()](#module_form..DedupeThisForm+preview)
             * [.dedupe()](#module_form..DedupeThisForm+dedupe)
@@ -211,7 +211,6 @@ FormApp Class
         * [._onChangeEntityType(event)](#module_form..DedupeThisForm+_onChangeEntityType)
         * [._onChangeFolder(event)](#module_form..DedupeThisForm+_onChangeFolder)
         * [._onClickButton(event)](#module_form..DedupeThisForm+_onClickButton)
-        * [._reduceFormData()](#module_form..DedupeThisForm+_reduceFormData)
         * [._buildCriteriaObject(formData)](#module_form..DedupeThisForm+_buildCriteriaObject) ⇒ <code>Object</code>
         * [.preview()](#module_form..DedupeThisForm+preview)
         * [.dedupe()](#module_form..DedupeThisForm+dedupe)
@@ -290,12 +289,6 @@ Handle click
 | --- |
 | event | 
 
-<a name="module_form..DedupeThisForm+_reduceFormData"></a>
-
-#### dedupeThisForm.\_reduceFormData()
-Scrapes and builds a formData object
-
-**Kind**: instance method of [<code>DedupeThisForm</code>](#module_form..DedupeThisForm)  
 <a name="module_form..DedupeThisForm+_buildCriteriaObject"></a>
 
 #### dedupeThisForm.\_buildCriteriaObject(formData) ⇒ <code>Object</code>
@@ -372,7 +365,8 @@ Register module settings
 <a name="module_util.buildFormData"></a>
 
 ### util.buildFormData(FD)
-Builds a FD returned from _getFormData into a formData arrayBorrowed from foundry.js
+Builds a FD returned from _getFormData into a formData array
+Borrowed from foundry.js
 
 **Kind**: static method of [<code>util</code>](#module_util)  
 
