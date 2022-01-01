@@ -53,7 +53,7 @@ export default class DedupeThisForm extends FormApplication {
         const entityType = this.entityType;
         
         const entityTypeEnum = entityType ? entityTypes.indexOf(entityType) : null;
-        const folders = entityType ? game.folders.entities.filter(f => f.type === entityType && f.name != this.dedupeWorker.duplicatesLocalized) : null;
+        const folders = entityType ? game.folders.filter(f => f.type === entityType && f.name != this.dedupeWorker.duplicatesLocalized) : null;
         const folder = this.folder;
         const criteria = this.criteria;
 
